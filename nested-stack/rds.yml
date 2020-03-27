@@ -161,7 +161,7 @@ Resources:
       EngineVersion: !Ref RDSEngineVersion
       DeletionProtection: !Ref RDSDeletionProtection
       MasterUsername: master
-      MasterUserPassword: !Ref RDSMasterPassword
+      MasterUserPassword: '{{resolve:ssm-secure:rds_password:1}}'
       DBInstanceIdentifier: !Join ['-', [!Ref RDSName, !Ref RDSEngine]]
       DBSubnetGroupName: !Ref RDSSubnetGroup
       VPCSecurityGroups:
